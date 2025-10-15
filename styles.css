@@ -1,0 +1,35 @@
+:root {
+    --text: #222;
+    --muted: #666;
+    --bg: #fff;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5
+}
+
+.wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+h1 {
+    margin: 0 0 8px
+}
+
+.sub {
+    color: var(--muted)
+}
+
+.sources ul {
+    padding-left: 18px
+}

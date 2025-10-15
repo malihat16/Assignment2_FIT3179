@@ -1,78 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Global Earthquakes (2000–2025)</title>
-    <style>
-        body {
-            font-family: system-ui, Segoe UI, Roboto, Arial;
-            margin: 0;
-            background: #fff;
-            color: #222;
-            line-height: 1.5
-        }
-
-        header,
-        section {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 24px
-        }
-
-        h1 {
-            margin: 0 0 8px
-        }
-
-        .sub {
-            color: #666
-        }
-
-        .chart {
-            margin: 16px 0
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="visualisation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 
 <body>
-    <header>
+    <header class="wrap">
         <h1>Global Earthquakes (2000–2025)</h1>
-        <p class="sub">USGS ComCat (M≥6.0). Point size = magnitude, colour = depth. Red lines show tectonic plate
-            boundaries.</p>
+        <p class="sub">USGS ComCat (M≥6.0). Red lines = tectonic plate boundaries. Point size = magnitude; colour =
+            depth.</p>
     </header>
 
-    <section>
-        <h2>Where do large earthquakes occur?</h2>
-        <div id="map" class="chart"></div>
-        <p class="sub">Use the year slider to explore events. Projection: Equal Earth. Basemap: Natural Earth
-            (TopoJSON).</p>
-    </section>
+    <main class="wrap">
+        <!-- optional stat cards (see tip below) -->
+        <div id="vis"></div>
 
-    <section>
-        <h2>How many per year?</h2>
-        <div id="line" class="chart"></div>
-        <p class="sub">Solid = annual count; dashed = 3-year moving average.</p>
-    </section>
-
-    <section>
-        <h2>How strong are they?</h2>
-        <div id="hist" class="chart"></div>
-    </section>
-
-    <section>
-        <h3>Sources</h3>
-        <ul class="sub">
-            <li>USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0).</li>
-            <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
-            <li>World-Atlas/Natural Earth countries TopoJSON.</li>
-        </ul>
-    </section>
-
-    <script src="js/vega_lite_vis.js"></script>
+        <section class="sources">
+            <h3>Sources</h3>
+            <ul>
+                <li>USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0).</li>
+                <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
+                <li>World-Atlas / Natural Earth countries TopoJSON.</li>
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>

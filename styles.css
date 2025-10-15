@@ -167,3 +167,10 @@ input[type="range"]::-moz-range-thumb {
         height: 32px;
     }
 }
+
+.masthead .logo { width: 28px; height: 28px; vertical-align: -4px; margin-right: 8px; }
+.chart { min-height: 260px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+h1, h2, h3 { font-family: "Bree Serif", serif; }
+.sub, body { font-family: "Aldrich", sans-serif; }

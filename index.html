@@ -13,48 +13,47 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <!-- Top-5 helpers (needed for topCountries.js) -->
     <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
-    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
 </head>
 
-
 <body>
-    <header>
-        <h1 class="page-title">
-            <img src="data/earth_icon.svg" alt="" class="title-logo" />
-            Global Earthquakes (2000–2025)
+    <header class="masthead">
+        <h1>
+            <img src="data/earth_icon.svg" alt="" class="logo" />
+            Global Earthquakes (2000–2025, M≥6.0)
         </h1>
-
-        <p class="sub">USGS ComCat (M≥6.0). Red lines = tectonic plate boundaries. Point size = magnitude; colour =
-            depth.</p>
+        <p class="sub">A quick tour of when, where, and how big — with tectonic context.</p>
     </header>
 
     <section>
-        <h2>Where do large earthquakes occur?</h2>
+        <h2>World Map</h2>
         <div id="map" class="chart"></div>
+        <p class="sub">Slide the year to explore spatial patterns. Size shows magnitude; colour shows depth (km). Plate
+            boundaries in red; volcanoes in green.</p>
+    </section>
+
+    <section class="grid2">
+        <div>
+            <h2>Quakes per Year</h2>
+            <div id="line" class="chart"></div>
     </section>
 
     <section>
-        <h2>How many per year?</h2>
-        <div id="line" class="chart"></div>
-    </section>
-
-    <section>
-        <h2>How strong are they?</h2>
+        <h2>Magnitude Distribution</h2>
         <div id="hist" class="chart"></div>
     </section>
 
     <section>
-        <h2>How do magnitudes break down each year?</h2>
+        <h2>Share by Magnitude Class</h2>
         <div id="areaMag" class="chart"></div>
     </section>
 
     <section>
-        <h2>Top 5 countries struck (by year)</h2>
-        <div id="top5" class="chart"></div>
+        <h2>Top-5 Countries by Quakes</h2>
+        <div id="top5"></div>
+        <div id="top5Chart" class="chart"></div>
     </section>
-
 
     <section>
         <h3>Sources</h3>
@@ -63,10 +62,10 @@
             <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
             <li>World-Atlas / Natural Earth countries TopoJSON.</li>
         </ul>
+        <p class="sub">Author: Maliha Tariq</p>
     </section>
 
-    <!-- Your module that embeds the three charts -->
+    <!-- ES modules (your code) -->
     <script type="module" src="visualisation.js"></script>
 </body>
-
 </html>

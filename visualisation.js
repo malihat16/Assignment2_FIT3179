@@ -10,5 +10,5 @@ import { initTopCountries } from './charts/topCountries.js';
   await vegaEmbed('#line', lineSpec, {actions:false});
   await vegaEmbed('#hist', histSpec, {actions:false});
   await vegaEmbed('#areaMag', areaMagClassSpec, {actions:false});
-  await initTopCountries('#top5'); // renders slider + bar chart
+  await initTopCountries('#top5'); 
 })();

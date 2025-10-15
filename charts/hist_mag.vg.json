@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Magnitude Distribution (2000–2025, M≥6.0)",
+  "width": 980,
+  "height": 260,
+  "data": {"url": "data/earthquakes_2000_2025_m6.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "bin": {"step": 0.2},
+      "field": "mag",
+      "type": "quantitative",
+      "title": "Magnitude"
+    },
+    "y": {"aggregate": "count", "type": "quantitative", "title": "Count"},
+    "tooltip": [{"aggregate": "count", "title": "Quakes"}]
+  }
+}

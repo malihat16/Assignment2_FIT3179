@@ -5,7 +5,6 @@ import { volcanoLayer } from './volcanoLayer.js';
 export const mapSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   width: MAP_WIDTH, height: MAP_HEIGHT, config: BASE_CONFIG,
-  title: {text: "Global Earthquakes (2000–2025, M≥6.0)"},
   projection: {type: "equalEarth"},
   params: [
     {

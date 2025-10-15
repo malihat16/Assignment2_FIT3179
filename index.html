@@ -4,46 +4,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Global Earthquakes (2000–2025)</title>
-    <style>
-        body {
-            font-family: system-ui, Segoe UI, Roboto, Arial;
-            margin: 0;
-            line-height: 1.5
-        }
+    
 
-        header,
-        section {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 24px
-        }
+    <!-- Use your external CSS (Aldrich + Bree Serif styles inside) -->
+    <link rel="stylesheet" href="styles.css" />
 
-        h1 {
-            margin: 0 0 8px
-        }
-
-        .sub {
-            color: #666
-        }
-
-        .chart {
-            margin: 16px 0
-        }
-    </style>
-
-    <!-- Load Vega libs FIRST -->
+    <!-- Vega libs -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Top-5 helpers (needed for topCountries.js) -->
     <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
-
 </head>
+
 
 <body>
     <header>
-        <h1>Global Earthquakes (2000–2025)</h1>
+        <h1 class="page-title">
+            <img src="data/earth_icon.svg" alt="" class="title-logo" />
+            Global Earthquakes (2000–2025)
+        </h1>
+
         <p class="sub">USGS ComCat (M≥6.0). Red lines = tectonic plate boundaries. Point size = magnitude; colour =
             depth.</p>
     </header>

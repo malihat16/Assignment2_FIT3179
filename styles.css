@@ -1,19 +1,33 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bree+Serif&display=swap');
+
 :root {
     --text: #222;
     --muted: #666;
     --bg: #fff;
 }
 
+/* Center the page content CSS */
+header,
+section {
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+}
+
+/* Base */
 * {
     box-sizing: border-box
 }
 
 body {
     margin: 0;
-    font-family: system-ui, Segoe UI, Roboto, Arial;
     color: var(--text);
     background: var(--bg);
-    line-height: 1.5
+    line-height: 1.5;
+    font-family: "Aldrich", system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    /* like your friend */
 }
 
 .wrap {
@@ -22,8 +36,34 @@ body {
     padding: 24px
 }
 
+/* Headings in Bree Serif */
+h1,
+h2,
+h3 {
+    font-family: "Bree Serif", Georgia, serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
 h1 {
+    font-size: 40px;
     margin: 0 0 8px
+}
+
+h2 {
+    font-size: 24px;
+    margin: 24px 0 8px
+}
+
+h3 {
+    font-size: 18px;
+    margin: 16px 0 6px
+}
+
+/* Text */
+p,
+.sub {
+    font-size: 16px
 }
 
 .sub {
@@ -32,4 +72,98 @@ h1 {
 
 .sources ul {
     padding-left: 18px
+}
+
+/* Chart blocks */
+.chart {
+    margin: 16px 0
+}
+
+/* Vega parameter UI (slider/labels) */
+.vega-bindings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0
+}
+
+.vega-bind-name {
+    font-size: 12px;
+    font-weight: 700
+}
+
+.vega-bindings label {
+    font-size: 14px;
+    color: #2d2d2d
+}
+
+/* Range slider styling  */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 240px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ddd;
+    outline: none
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer
+}
+
+/* Vega tooltip font to match Aldrich */
+#vg-tooltip-element * {
+    font-family: "Aldrich", sans-serif
+}
+
+/* Title with icon */
+.page-title {
+    display: flex;
+    align-items: center;
+    /* vertical center text + icon */
+    gap: 12px;
+    /* space between icon and text */
+    margin: 0 0 8px;
+    font-family: "Bree Serif", Georgia, serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+/* SVG icon sizing */
+.title-logo {
+    width: 40px;
+    /* tweak size here */
+    height: 40px;
+    /* keep square for SVG */
+    flex: 0 0 auto;
+}
+
+/* Slightly smaller on small screens */
+@media (max-width:600px) {
+    .page-title {
+        font-size: 32px;
+        gap: 10px;
+    }
+
+    .title-logo {
+        width: 32px;
+        height: 32px;
+    }
 }

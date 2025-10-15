@@ -16,20 +16,29 @@ export const lineSpec = {
       sort: [{ field: "year" }]
     }
   ],
-  layer: [
-    {
-      mark: { type: "line", color: "#888" },
-      encoding: {
-        x: { field: "year", type: "quantitative", title: "Year", sort: "ascending" },
-        y: { field: "quakes", type: "quantitative", title: "Count" }
-      }
-    },
-    {
-      mark: { type: "line", strokeDash: [4, 2], strokeWidth: 2, color: "#2c7fb8" },
-      encoding: {
-        x: { field: "year", type: "quantitative", title: "Year", sort: "ascending" },
-        y: { field: "ma_3yr", type: "quantitative", title: "3-yr moving average" }
-      }
+layer: [
+  {
+    mark: { type: "line", color: "#7d8896" },
+    encoding: {
+      x: { field: "year", type: "quantitative", title: "Year", sort: "ascending", format: "d" },
+      y: { field: "quakes", type: "quantitative", title: "Count" }
     }
-  ]
+  },
+  {
+    mark: { type: "line", strokeDash: [4,2], strokeWidth: 2, color: "#2c7fb8" },
+    encoding: {
+      x: { field: "year", type: "quantitative", title: "Year", sort: "ascending", format: "d" },
+      y: { field: "ma_3yr", type: "quantitative", title: "3-yr moving average" }
+    }
+  },
+  // optional: small points for hover tooltips
+  {
+    mark: { type: "point", filled: true, size: 20, color: "#2c7fb8", opacity: 0.6 },
+    encoding: {
+      x: { field: "year", type: "quantitative", format: "d" },
+      y: { field: "quakes", type: "quantitative" },
+      tooltip: [{ field: "year", format: "d" }, { field: "quakes" }, { field: "ma_3yr", title: "3-yr avg" }]
+    }
+  }
+]
 };

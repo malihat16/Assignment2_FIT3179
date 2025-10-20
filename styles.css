@@ -235,5 +235,5 @@ header, section {
 .chart { position: relative; overflow: visible; }
 .vega-actions { right: 6px !important; top: 6px !important; }
 
-/* Optional: avoid phantom horizontal scrollbars */
+/* avoid phantom horizontal scrollbars */
 html, body { overflow-x: hidden; }

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bree+Serif&display=swap');
 
 :root {
+    --content: 1120px;
     --text: #222;
     --muted: #666;
     --bg: #fff;
@@ -174,3 +175,65 @@ input[type="range"]::-moz-range-thumb {
 @media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
 h1, h2, h3 { font-family: "Bree Serif", serif; }
 .sub, body { font-family: "Aldrich", sans-serif; }
+
+/* Titles = Bree Serif (serif), body = Aldrich */
+h1,
+h2,
+h3 {
+    font-family: "Bree Serif", serif;
+}
+
+body,
+.sub,
+figcaption {
+    font-family: "Aldrich", sans-serif;
+}
+
+/* Captions */
+figure {
+    margin: 18px 0;
+}
+
+figcaption {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: #425466;
+}
+
+/* Unified content width + true centering */
+:root { --content: 1120px; } /* tweak to taste */
+
+.page {
+  max-width: var(--content);
+  margin-inline: auto;
+  padding-inline: 16px;
+
+}
+
+/* Let sections stretch to the page width (the wrapper controls centering) */
+header, section {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Charts: block-level and centered; no accidental overflow */
+.chart, .vega-embed {
+  display: block;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* replace your broad rule with this */
+.vega-embed .vega-viewport>svg,
+.vega-embed .vega-viewport>canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+/* Keep the 3-dots menu from shifting layout */
+.chart { position: relative; overflow: visible; }
+.vega-actions { right: 6px !important; top: 6px !important; }
+
+/* Optional: avoid phantom horizontal scrollbars */
+html, body { overflow-x: hidden; }

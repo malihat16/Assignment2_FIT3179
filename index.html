@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Global Earthquakes (2000–2025, M≥6.0)</title>
 
-    <!-- Use your external CSS (Aldrich + Bree Serif styles inside) -->
+    <!-- Site styles (Aldrich + Bree Serif imported inside) -->
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Vega libs -->
@@ -18,53 +18,80 @@
 </head>
 
 <body>
-    <header class="masthead">
-        <h1>
-            <img src="data/earth_icon.svg" alt="" class="logo" />
-            Global Earthquakes (2000–2025, M≥6.0)
-        </h1>
-        <p class="sub"> .</p>
-    </header>
+    <!-- Centered page wrapper -->
+    <main class="page">
+        <header class="masthead">
+            <h1>
+                <img src="data/earth_icon.svg" alt="" class="logo" />
+                Global Earthquakes (2000–2025, M≥6.0)
+            </h1>
+            <p class="sub">Explore where, when, and how strong M≥6.0 events were worldwide.</p>
+        </header>
 
-    <section>
-        <h2>World Map</h2>
-        <div id="map" class="chart"></div>
-        <p class="sub">Size shows magnitude; colour shows depth (km). </p>
-    </section>
+        <section>
+            <figure>
+                <h2>World Map</h2>
+                <div id="map" class="chart"></div>
+                <figcaption>
+                    Size encodes magnitude; colour encodes depth (km). Use the year slider to see shifts near plate
+                    boundaries and volcanic arcs.
+                </figcaption>
+            </figure>
+        </section>
 
-    <section class="grid2">
-        <div>
-            <h2>Quakes per Year</h2>
-            <div id="line" class="chart"></div>
-    </section>
+        <section class="grid2">
+            <figure>
+                <h2>Quakes per Year</h2>
+                <div id="line" class="chart"></div>
+                <figcaption>
+                    Annual counts with a 3-year moving average for trend clarity. Legend distinguishes raw counts vs
+                    smoothed series.
+                </figcaption>
+            </figure>
+        </section>
 
-    <section>
-        <h2>Magnitude Distribution</h2>
-        <div id="hist" class="chart"></div>
-    </section>
+        <section>
+            <figure>
+                <h2>Magnitude Distribution</h2>
+                <div id="hist" class="chart"></div>
+                <figcaption>
+                    Histogram of magnitudes (bin = 0.2). Expect rapid drop-off toward ≥8.0 events.
+                </figcaption>
+            </figure>
+        </section>
 
-    <section>
-        <h2>Share by Magnitude Class</h2>
-        <div id="areaMag" class="chart"></div>
-    </section>
+        <section>
+            <figure>
+                <h2>Share by Magnitude Class</h2>
+                <div id="areaMag" class="chart"></div>
+                <figcaption>
+                    Normalized stack by year shows the mix of 6.0–6.9, 7.0–7.9, and ≥8.0. Peak labels mark each class’s
+                    strongest years.
+                </figcaption>
+            </figure>
+        </section>
 
-    <section>
-        <h2>Top-5 Countries by Quakes</h2>
-        <div id="top5"></div>
-        <div id="top5Chart" class="chart"></div>
-    </section>
+        <section>
+            <figure>
+                <h2>Top-5 Countries by Quakes</h2>
+                <div id="top5" class="chart"></div>
+                <figcaption>Ranked list changes with the year slider above the chart.</figcaption>
+            </figure>
+        </section>
 
-    <section>
-        <h3>Sources</h3>
-        <ul class="sub">
-            <li>USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0).</li>
-            <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
-            <li>World-Atlas / Natural Earth countries TopoJSON.</li>
-        </ul>
-        <p class="sub">Author: Maliha Tariq</p>
-    </section>
+        <section>
+            <h3>Sources</h3>
+            <ul class="sub">
+                <li>USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0).</li>
+                <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
+                <li>World-Atlas / Natural Earth countries TopoJSON.</li>
+            </ul>
+            <p class="sub">Author: Maliha Tariq</p>
+        </section>
+    </main>
 
-    <!-- ES modules (your code) -->
+    <!-- Your app code (load once) -->
     <script type="module" src="visualisation.js"></script>
 </body>
+
 </html>

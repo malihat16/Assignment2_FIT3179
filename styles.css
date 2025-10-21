@@ -1,239 +1,93 @@
-/* Google fonts */
+/* ---------- Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bree+Serif&display=swap');
 
-:root {
-    --content: 1120px;
-    --text: #222;
-    --muted: #666;
-    --bg: #fff;
+/* ---------- Layout variables ---------- */
+:root{
+  --page-max: 1200px;     /* main column width (friend used ~1200px) */
+  --gutter: 24px;         /* side padding */
+  --section-gap: 48px;    /* vertical rhythm between sections */
+  --text: #222;
+  --muted: #4a5568;
+  --bg: #fff;
 }
 
-/* Center the page content CSS */
-header,
-section {
-    max-width: 1040px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 24px;
-}
+/* ---------- Base ---------- */
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; overflow-x:hidden; background:var(--bg); color:var(--text); }
+body{ line-height:1.5; font-family:"Aldrich", system-ui, Segoe UI, Roboto, Arial, sans-serif; }
 
-/* Base */
-* {
-    box-sizing: border-box
-}
-
-body {
-    margin: 0;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.5;
-    font-family: "Aldrich", system-ui, Segoe UI, Roboto, Arial, sans-serif;
-    /* like your friend */
-}
-
-.wrap {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 24px
-}
-
-/* Headings in Bree Serif */
-h1,
-h2,
-h3 {
-    font-family: "Bree Serif", Georgia, serif;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-h1 {
-    font-size: 40px;
-    margin: 0 0 8px
-}
-
-h2 {
-    font-size: 24px;
-    margin: 24px 0 8px
-}
-
-h3 {
-    font-size: 18px;
-    margin: 16px 0 6px
-}
-
-/* Text */
-p,
-.sub {
-    font-size: 16px
-}
-
-.sub {
-    color: var(--muted)
-}
-
-.sources ul {
-    padding-left: 18px
-}
-
-/* Chart blocks */
-.chart {
-    margin: 16px 0
-}
-
-/* Vega parameter UI (slider/labels) */
-.vega-bindings {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 6px 0
-}
-
-.vega-bind-name {
-    font-size: 12px;
-    font-weight: 700
-}
-
-.vega-bindings label {
-    font-size: 14px;
-    color: #2d2d2d
-}
-
-/* Range slider styling  */
-input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 240px;
-    height: 4px;
-    border-radius: 2px;
-    background: #ddd;
-    outline: none
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #000;
-    cursor: pointer
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    border: none;
-    border-radius: 50%;
-    background: #000;
-    cursor: pointer
-}
-
-/* Vega tooltip font to match Aldrich */
-#vg-tooltip-element * {
-    font-family: "Aldrich", sans-serif
-}
-
-/* Title with icon */
-.page-title {
-    display: flex;
-    align-items: center;
-    /* vertical center text + icon */
-    gap: 12px;
-    /* space between icon and text */
-    margin: 0 0 8px;
-    font-family: "Bree Serif", Georgia, serif;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 1.2;
-}
-
-/* SVG icon sizing */
-.title-logo {
-    width: 40px;
-    /* tweak size here */
-    height: 40px;
-    /* keep square for SVG */
-    flex: 0 0 auto;
-}
-
-/* Slightly smaller on small screens */
-@media (max-width:600px) {
-    .page-title {
-        font-size: 32px;
-        gap: 10px;
-    }
-
-    .title-logo {
-        width: 32px;
-        height: 32px;
-    }
-}
-
-.masthead .logo { width: 28px; height: 28px; vertical-align: -4px; margin-right: 8px; }
-.chart { min-height: 260px; }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-@media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
-h1, h2, h3 { font-family: "Bree Serif", serif; }
-.sub, body { font-family: "Aldrich", sans-serif; }
-
-/* Titles = Bree Serif (serif), body = Aldrich */
-h1,
-h2,
-h3 {
-    font-family: "Bree Serif", serif;
-}
-
-body,
-.sub,
-figcaption {
-    font-family: "Aldrich", sans-serif;
-}
-
-/* Captions */
-figure {
-    margin: 18px 0;
-}
-
-figcaption {
-    margin-top: 6px;
-    font-size: 0.95rem;
-    line-height: 1.35;
-    color: #425466;
-}
-
-/* Unified content width + true centering */
-:root { --content: 1120px; } /* tweak to taste */
-
-.page {
-  max-width: var(--content);
+/* ---------- Single centered column ---------- */
+.page{
+  max-width: var(--page-max);
   margin-inline: auto;
-  padding-inline: 16px;
-
+  padding-inline: var(--gutter);
+  padding-bottom: 56px;
 }
 
-/* Let sections stretch to the page width (the wrapper controls centering) */
-header, section {
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
+/* Remove old per-section widths so .page controls layout */
+header, section{ max-width: none; margin: 0; padding: 0; }
+section{ margin-block: var(--section-gap); }
+
+/* ---------- Typography ---------- */
+h1, h2, h3{ font-family:"Bree Serif", Georgia, serif; font-weight:700; line-height:1.2; }
+h1{ font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 8px; }
+h2{ font-size: clamp(20px, 2.2vw, 26px); margin: 0 0 6px; }
+h3{ font-size: 18px; margin: 16px 0 6px; }
+
+.sub, figcaption{ font-family:"Aldrich", sans-serif; color:var(--muted); font-size:14px; line-height:1.35; }
+figure{ margin: 0; }
+figcaption{ margin-top: 8px; }
+
+/* Optional headline with icon */
+.page-title{
+  display:flex; align-items:center; gap:12px; margin:0 0 8px;
+  font-family:"Bree Serif", Georgia, serif; font-weight:800; font-size: clamp(28px,3.8vw,40px);
+}
+.masthead .logo{ width:32px; height:32px; vertical-align:-4px; margin-right:8px; }
+
+/* ---------- Charts ---------- */
+.chart, .vega-embed{
+  display:block;
+  margin-inline:auto;
+  width:100%;
+  position:relative;
+  overflow:visible; /* keeps the 3-dot menu visible */
 }
 
-/* Charts: block-level and centered; no accidental overflow */
-.chart, .vega-embed {
-  display: block;
-  margin-inline: auto;
-  width: 100%;
+/* Make embedded SVG/canvas fluid */
+.vega-embed .vega-viewport > svg,
+.vega-embed .vega-viewport > canvas{
+  width:100% !important;
+  height:auto !important;
 }
 
-/* replace your broad rule with this */
-.vega-embed .vega-viewport>svg,
-.vega-embed .vega-viewport>canvas {
-    width: 100% !important;
-    height: auto !important;
-}
-/* Keep the 3-dots menu from shifting layout */
-.chart { position: relative; overflow: visible; }
-.vega-actions { right: 6px !important; top: 6px !important; }
+/* Actions menu placement */
+.vega-actions{ right:8px !important; top:8px !important; font-size:13px; }
 
-/* avoid phantom horizontal scrollbars */
-html, body { overflow-x: hidden; }
+/* ---------- Controls / bindings ---------- */
+.vega-bindings{ display:flex; align-items:center; gap:8px; margin:6px 0; }
+.vega-bind-name{ font-size:12px; font-weight:700; }
+.vega-bindings label{ font-size:14px; color:#2d2d2d; }
+
+/* Sliders */
+input[type="range"]{
+  -webkit-appearance:none; appearance:none;
+  width:240px; height:4px; border-radius:2px; background:#ddd; outline:none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:14px; height:14px; border-radius:50%; background:#000; cursor:pointer;
+}
+input[type="range"]::-moz-range-thumb{
+  width:14px; height:14px; border:none; border-radius:50%; background:#000; cursor:pointer;
+}
+
+/* ---------- Grid helper (optional) ---------- */
+.grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+@media (max-width: 900px){ .grid2{ grid-template-columns: 1fr; } }
+
+/* ---------- Tooltips ---------- */
+#vg-tooltip-element *{ font-family:"Aldrich", sans-serif; }
+
+/* ---------- Small utilities ---------- */
+.sources ul{ padding-left:18px; }

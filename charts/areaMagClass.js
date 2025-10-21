@@ -6,7 +6,7 @@ export const areaMagClassSpec = {
   width: LINE_WIDTH,
   height: LINE_HEIGHT,
   config: BASE_CONFIG,
-  title: { text: "Quakes by Magnitude Class (per year, M≥6.0)" },
+  title: { text: " " },
   data: { url: "data/earthquakes_2000_2025_m6.csv" },
   transform: [
     { calculate: "year(datum.time)", as: "year" },

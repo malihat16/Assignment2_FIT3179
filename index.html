@@ -23,14 +23,15 @@
         <header class="masthead">
             <h1>
                 <img src="data/earth_icon.svg" alt="" class="logo" />
-                Global Earthquakes (2000–2025, M≥6.0)
+                Global Earthquakes
             </h1>
-            <p class="sub">Explore where, when, and how strong M≥6.0 events were worldwide.</p>
+            <p class="sub">Twenty five years of M≥6.0 events - where they struck, how deep they were & how counts changed.
+                over time.</p>
         </header>
 
         <section>
             <figure>
-                <h2>World Map</h2>
+                <h2>Location of Earthquakes</h2>
                 <div id="map" class="chart"></div>
                 <figcaption>
                     Size encodes magnitude; colour encodes depth (km). Use the year slider to see shifts near plate
@@ -46,6 +47,10 @@
                 <figcaption>
                     Annual counts with a 3-year moving average for trend clarity. Legend distinguishes raw counts vs
                     smoothed series.
+                    Each point is the yearly count of M≥6.0 earthquakes; the blue line applies a 3-year moving average to reduce the
+                    influence of large aftershock sequences. The dashed markers highlight the 2004 Sumatra and 2011 Tōhoku events, both of
+                    which drive short-lived peaks. The overall level has eased slightly since ~2012, but natural variability is large, so
+                    trends are best interpreted with the smoothed line.
                 </figcaption>
             </figure>
         </section>
@@ -55,7 +60,7 @@
                 <h2>Magnitude Distribution</h2>
                 <div id="hist" class="chart"></div>
                 <figcaption>
-                    Histogram of magnitudes (bin = 0.2). Expect rapid drop-off toward ≥8.0 events.
+                    Most M≥6.0 earthquakes fall between 6.0–6.6; counts drop quickly beyond 7.0 and are very rare ≥8.0.
                 </figcaption>
             </figure>
         </section>
@@ -80,13 +85,13 @@
         </section>
 
         <section>
-            <h3>Sources</h3>
-            <ul class="sub">
-                <li>USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0).</li>
-                <li>USGS Tectonic Plate Boundaries (Bird 2003; DeMets et al. 2010).</li>
-                <li>World-Atlas / Natural Earth countries TopoJSON.</li>
-            </ul>
-            <p class="sub">Author: Maliha Tariq</p>
+            <p>Author: Maliha Tariq</p>
+            <p>Created: 16.10.2025</p>
+            <p>Github link: <a href="https://github.com/malihat16/Assignment2_FIT3179">Github</a></p>
+            <p>Data Source: <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0)</a> and <a
+                        href="https://www.usgs.gov/media/images/tectonic-plate-boundaries">USGS Tectonic Plate Boundaries</a></p>
+                </p>
+
         </section>
     </main>
 

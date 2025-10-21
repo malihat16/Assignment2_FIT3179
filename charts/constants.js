@@ -17,7 +17,7 @@ export const DEFAULT_YEAR = 2011;
 
 // common config (font sizes etc.)
 export const BASE_CONFIG = {
-  axis: {labelFontSize: 12, titleFontSize: 13},
-  legend: {labelFontSize: 12, titleFontSize: 13},
-  title: {fontSize: 18}
+  title: { font: "Bree Serif", fontSize: 20, anchor: "start", color: "#111" },
+  axis:  { labelFont: "Aldrich", titleFont: "Aldrich", labelFontSize: 12, titleFontSize: 13, gridColor: "#e6edf3" },
+  legend:{ labelFont: "Aldrich", titleFont: "Aldrich", labelFontSize: 12, titleFontSize: 13 }
 };

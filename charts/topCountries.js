@@ -94,7 +94,7 @@ export async function initTopCountries(containerId = '#top5') {
       const spec = {
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         width: 520, height: 280,
-        title: { text: `Top 5 Countries by Quakes (M≥6.0) — ${year}` },
+        title: { text: ` ${year}` },
         data: { values: arr },
         mark: "bar",
         encoding: {

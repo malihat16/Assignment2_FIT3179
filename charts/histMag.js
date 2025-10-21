@@ -1,40 +1,3 @@
-// charts/histMag.js
-// import { HIST_WIDTH, HIST_HEIGHT, BASE_CONFIG } from './constants.js';
-
-// export const histSpec = {
-//   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-//   width: HIST_WIDTH, height: HIST_HEIGHT,
-//   config: BASE_CONFIG,
-//   title: { text: "Magnitude Distribution (2000–2025, M≥6.0)" },
-//   data: { url: "data/earthquakes_2000_2025_m6.csv" },
-//   layer: [
-//     // bars
-//     {
-//       mark: "bar",
-//       encoding: {
-//         x: { bin: { step: 0.2 }, field: "mag", type: "quantitative", title: "Magnitude" },
-//         y: { aggregate: "count", type: "quantitative", title: "Count" },
-//         tooltip: [{ aggregate: "count", title: "Quakes" }]
-//       }
-//     },
-//     // peak-bin label (fixed)
-//     {
-//       transform: [
-//         { bin: { step: 0.2 }, field: "mag", as: "mag_bin" },
-//         { aggregate: [{ op: "count", as: "cnt" }], groupby: ["mag_bin"] },
-//         { joinaggregate: [{ op: "max", field: "cnt", as: "maxCnt" }] },
-//         { filter: "datum.cnt == datum.maxCnt" },
-//         { calculate: "(datum.mag_bin.start + datum.mag_bin.end)/2", as: "xmid" }
-//       ],
-//       mark: { type: "text", dy: -6, align: "center", fontStyle: "italic" },
-//       encoding: {
-//         x: { field: "xmid", type: "quantitative" },
-//         y: { field: "cnt", type: "quantitative" },
-//         text: { value: "Peak bin" }
-//       }
-//     }
-//   ]
-// };
 
 // charts/histMag.js
 import { HIST_WIDTH, HIST_HEIGHT, BASE_CONFIG } from './constants.js';
@@ -43,7 +6,6 @@ export const histSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   width: HIST_WIDTH,
   height: HIST_HEIGHT,
-  title: { text: " " },
   config: {
     ...BASE_CONFIG,
     axis: {
@@ -57,7 +19,7 @@ export const histSpec = {
   layer: [
     // 1) BARS — this layer OWNS the axes (ensures x-axis shows)
     {
-      mark: { type: "bar", color: "#446b99", stroke: "#2c4a6e", strokeWidth: 0.5 },
+      mark: { type: "bar", color: "#374151", stroke: "#2c4a6e", strokeWidth: 0.5 },
       encoding: {
         x: {
           bin: { step: 0.2 },

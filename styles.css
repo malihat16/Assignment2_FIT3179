@@ -1,93 +1,309 @@
 /* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bree+Serif&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap');
 /* ---------- Layout variables ---------- */
-:root{
-  --page-max: 1200px;     /* main column width (friend used ~1200px) */
-  --gutter: 24px;         /* side padding */
-  --section-gap: 48px;    /* vertical rhythm between sections */
+:root {
+  --top-gap: 24px;
+  --page-max: 1200px;
+  --gutter: 24px;
+  --section-gap: 48px;
   --text: #222;
   --muted: #4a5568;
   --bg: #fff;
 }
 
 /* ---------- Base ---------- */
-*{ box-sizing: border-box; }
-html, body{ margin:0; padding:0; overflow-x:hidden; background:var(--bg); color:var(--text); }
-body{ line-height:1.5; font-family:"Aldrich", system-ui, Segoe UI, Roboto, Arial, sans-serif; }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  line-height: 1.5;
+  font-family: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
 
 /* ---------- Single centered column ---------- */
-.page{
+.page {
   max-width: var(--page-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
   padding-bottom: 56px;
+  padding-top: var(--top-gap);
 }
 
-/* Remove old per-section widths so .page controls layout */
-header, section{ max-width: none; margin: 0; padding: 0; }
-section{ margin-block: var(--section-gap); }
+header,
+section {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin-block: var(--section-gap);
+}
 
 /* ---------- Typography ---------- */
-h1, h2, h3{ font-family:"Bree Serif", Georgia, serif; font-weight:700; line-height:1.2; }
-h1{ font-size: clamp(28px, 3.6vw, 42px); margin: 0 0 8px; }
-h2{ font-size: clamp(20px, 2.2vw, 26px); margin: 0 0 6px; }
-h3{ font-size: 18px; margin: 16px 0 6px; }
-
-.sub, figcaption{ font-family:"Aldrich", sans-serif; color:var(--muted); font-size:14px; line-height:1.35; }
-figure{ margin: 0; }
-figcaption{ margin-top: 8px; }
-
-/* Optional headline with icon */
-.page-title{
-  display:flex; align-items:center; gap:12px; margin:0 0 8px;
-  font-family:"Bree Serif", Georgia, serif; font-weight:800; font-size: clamp(28px,3.8vw,40px);
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 42px);
+  margin: 0 0 8px;
 }
-.masthead .logo{ width:32px; height:32px; vertical-align:-4px; margin-right:8px; }
+
+/* Other headings inherit Figtree from body */
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sub,
+figcaption {
+  font-family: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 8px;
+}
+
+.masthead .logo {
+  width: 32px;
+  height: 32px;
+  vertical-align: -4px;
+  margin-right: 8px;
+}
 
 /* ---------- Charts ---------- */
-.chart, .vega-embed{
-  display:block;
-  margin-inline:auto;
-  width:100%;
-  position:relative;
-  overflow:visible; /* keeps the 3-dot menu visible */
+.chart,
+.vega-embed {
+  display: block;
+  margin-inline: auto;
+  width: 100%;
+  position: relative;
+  overflow: visible;
 }
 
-/* Make embedded SVG/canvas fluid */
-.vega-embed .vega-viewport > svg,
-.vega-embed .vega-viewport > canvas{
-  width:100% !important;
-  height:auto !important;
+.vega-embed .vega-viewport>svg,
+.vega-embed .vega-viewport>canvas {
+  width: 100% !important;
+  height: auto !important;
 }
 
-/* Actions menu placement */
-.vega-actions{ right:8px !important; top:8px !important; font-size:13px; }
+.vega-actions {
+  right: 8px !important;
+  top: 8px !important;
+  font-size: 13px;
+}
 
 /* ---------- Controls / bindings ---------- */
-.vega-bindings{ display:flex; align-items:center; gap:8px; margin:6px 0; }
-.vega-bind-name{ font-size:12px; font-weight:700; }
-.vega-bindings label{ font-size:14px; color:#2d2d2d; }
+.vega-bindings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.vega-bind-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vega-bindings label {
+  font-size: 14px;
+  color: #2d2d2d;
+}
 
 /* Sliders */
-input[type="range"]{
-  -webkit-appearance:none; appearance:none;
-  width:240px; height:4px; border-radius:2px; background:#ddd; outline:none;
-}
-input[type="range"]::-webkit-slider-thumb{
-  -webkit-appearance:none; appearance:none;
-  width:14px; height:14px; border-radius:50%; background:#000; cursor:pointer;
-}
-input[type="range"]::-moz-range-thumb{
-  width:14px; height:14px; border:none; border-radius:50%; background:#000; cursor:pointer;
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 240px;
+  height: 4px;
+  border-radius: 2px;
+  background: #ddd;
+  outline: none;
 }
 
-/* ---------- Grid helper (optional) ---------- */
-.grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
-@media (max-width: 900px){ .grid2{ grid-template-columns: 1fr; } }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
 
-/* ---------- Tooltips ---------- */
-#vg-tooltip-element *{ font-family:"Aldrich", sans-serif; }
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
 
+/* ---------- Grid helper ---------- */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vega tooltip text */
+#vg-tooltip-element * {
+  font-family: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
 /* ---------- Small utilities ---------- */
-.sources ul{ padding-left:18px; }
+.sources ul {
+  padding-left: 18px;
+}
+
+
+/* Map filters: tidy spacing */
+#map .vega-bindings {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 260px;
+  /* small default gap */
+  row-gap: 8px;
+  margin-top: 2px;
+}
+
+#map .vega-bind-name {
+  margin-right: 6px;
+}
+
+/* Make sliders a bit wider */
+#map .vega-bindings input[type="range"] {
+  width: 300px;
+}
+
+/* Add space BEFORE the second control ONLY (its label) */
+#map .vega-bindings .vega-bind-name:nth-of-type(2) {
+  margin-left: 56px;
+  /* tweak to taste: 40–80px */
+}
+
+
+/* Footer / metadata tidy-up */
+footer.meta p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.meta-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta-links li {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* ← make list same size as body */
+footer.meta a {
+  color: #1a56db;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(26, 86, 219, .35);
+}
+
+footer.meta a:hover {
+  border-bottom-color: currentColor;
+}
+/* ---- Footer / metadata ---- */
+footer.meta {
+  margin-top: var(--section-gap);
+  padding: 24px 0 48px;
+  border-top: 1px solid #e6edf3;
+  color: var(--muted);
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* 1fr | 1fr | 1fr */
+  column-gap: 32px;
+  /* equal gutters */
+  row-gap: 18px;
+  align-items: start;
+  /* align headings on the same baseline */
+}
+
+/* Prevent long links from expanding the column */
+.meta-grid>div {
+  min-width: 0;
+}
+
+.meta-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta-links li {
+  overflow-wrap: anywhere;
+}
+
+/* wrap long URLs gracefully */
+
+.meta-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+footer.meta p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.meta-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.meta-links li {
+  margin: 4px 0;
+}
+
+footer.meta a {
+  color: #1a56db;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(26, 86, 219, .35);
+}
+
+footer.meta a:hover {
+  border-bottom-color: currentColor;
+}
+
+@media (max-width: 900px) {
+  .meta-grid {
+    grid-template-columns: 1fr;
+  }
+}

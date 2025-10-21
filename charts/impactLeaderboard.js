@@ -4,7 +4,7 @@ import { BASE_CONFIG, HIST_WIDTH as WIDTH, HIST_HEIGHT as HEIGHT } from './const
 export const impactLeaderboardSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   width: WIDTH, height: HEIGHT + 40,
-  title: { text: "Top Countries by Impact (2000–2025, NOAA)", subtitle: "Toggle: Deaths or Damage", ...BASE_CONFIG.title },
+  title: { subtitle: "Toggle: ", ...BASE_CONFIG.title },
   config: { ...BASE_CONFIG, view: { stroke: null } },
 
   params: [
@@ -31,21 +31,43 @@ export const impactLeaderboardSpec = {
     // Sum by country for the chosen metric
     { aggregate: [{ op: "sum", field: "value", as: "total" }], groupby: ["countryGuess"] },
 
-    // Rank and keep top 15
+    // Rank and keep top 10
     { window: [{ op: "rank", as: "rank" }], sort: [{ field: "total", order: "descending" }] },
-    { filter: "datum.rank <= 15" }
+    { filter: "datum.rank <= 10" }
   ],
 
   mark: { type: "bar", tooltip: true },
 
   encoding: {
-    y: { field: "countryGuess", type: "nominal", sort: "-x", title: "" },
+    y: {
+        field: "countryGuess",
+        type: "nominal",
+        sort: "-x",
+        title: "",
+        axis: {
+            labelLimit: 140,
+            labelPadding: 4,
+            labelExpr: "length(datum.label) > 18 ? substring(datum.label,0,18) + '…' : datum.label"
+        }
+    },
     x: { field: "total", type: "quantitative",
-         title: { signal: "metric == 'Deaths' ? 'Deaths' : 'Damage (USD, M)'" } },
+         title: { signal: "metric == 'Deaths' ? 'Deaths' : 'Damage (USD, M)'" }, axis: { format: "~s" } },
     color: { value: "#374151" },
     tooltip: [
-      { field: "countryGuess", title: "Country" },
-      { field: "total", title: { signal: "metric == 'Deaths' ? 'Deaths' : 'Damage (USD, M)'" } }
-    ]
+        { field: "countryGuess", title: "Country" },
+        {
+            condition: {
+            test: "metric == 'Deaths'",
+            field: "total",
+            type: "quantitative",
+            title: "Deaths",
+            format: "~s"
+            },
+            field: "total",
+            type: "quantitative",
+            title: "Damage (USD, M)",
+            format: "~s"
+        }
+        ]
   }
 };

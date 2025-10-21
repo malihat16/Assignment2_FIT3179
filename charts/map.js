@@ -4,16 +4,15 @@ export const mapSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v5.json",
   width: MAP_WIDTH,
   height: MAP_HEIGHT,
-  title: { text: " ", fontSize: 24 },
   projection: { type: "equirectangular" },
-  config: { ...BASE_CONFIG, view: { stroke: null } },
+  config: { ...BASE_CONFIG, view: { stroke: null }, padding: { bottom: 1 } },
 
   /* add a helper slider to filter tiny quakes if you want */
   params: [
     { name: "yearSel", value: DEFAULT_YEAR,
       bind: { input: "range", min: 2000, max: 2025, step: 1, name: "Year: " } },
     { name: "magMin", value: 6,
-      bind: { input: "range", min: 6, max: 9.2, step: 0.1, name: "Min M: " } }   // ← optional
+      bind: { input: "range", min: 6, max: 9.2, step: 0.1, name: "Min Magnitude: " } }   // ← optional
   ],
 
   layer: [

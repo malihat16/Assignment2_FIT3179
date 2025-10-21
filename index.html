@@ -22,11 +22,9 @@
     <main class="page">
         <header class="masthead">
             <h1>
-                <img src="data/earth_icon.svg" alt="" class="logo" />
                 Global Earthquakes
             </h1>
-            <p class="sub">Twenty five years of M≥6.0 events - where they struck, how deep they were & how counts changed.
-                over time.</p>
+            <p class="sub">Twenty five years of M≥6.0 events - where they struck, how deep they were & how counts changed over time.</p>
         </header>
 
         <section>
@@ -34,8 +32,7 @@
                 <h2>Location of Earthquakes</h2>
                 <div id="map" class="chart"></div>
                 <figcaption>
-                    Size encodes magnitude; colour encodes depth (km). Use the year slider to see shifts near plate
-                    boundaries and volcanic arcs.
+                    Circles show M≥6.0 earthquakes in the selected year. Size & colour encode magnitude; use the sliders to filter.
                 </figcaption>
             </figure>
         </section>
@@ -45,12 +42,7 @@
                 <h2>Quakes per Year</h2>
                 <div id="line" class="chart"></div>
                 <figcaption>
-                    Annual counts with a 3-year moving average for trend clarity. Legend distinguishes raw counts vs
-                    smoothed series.
-                    Each point is the yearly count of M≥6.0 earthquakes; the blue line applies a 3-year moving average to reduce the
-                    influence of large aftershock sequences. The dashed markers highlight the 2004 Sumatra and 2011 Tōhoku events, both of
-                    which drive short-lived peaks. The overall level has eased slightly since ~2012, but natural variability is large, so
-                    trends are best interpreted with the smoothed line.
+                    Annual M≥6.0 counts with a 3-year moving average (dashed). Vertical markers highlight years of major events.
                 </figcaption>
             </figure>
         </section>
@@ -60,7 +52,7 @@
                 <h2>Magnitude Distribution</h2>
                 <div id="hist" class="chart"></div>
                 <figcaption>
-                    Most M≥6.0 earthquakes fall between 6.0–6.6; counts drop quickly beyond 7.0 and are very rare ≥8.0.
+                    Most M≥6.0 events cluster at 6.0–6.6; counts drop quickly beyond 7.0 and are rare ≥8.0.
                 </figcaption>
             </figure>
         </section>
@@ -70,9 +62,8 @@
                 <h2>Magnitude vs Fatalities</h2>
                 <div id="impactScatter" class="chart"></div>
                 <figcaption>
-                    Bigger magnitude doesn’t always mean higher deaths. Fatalities rise with exposed population, building
-                    standards,
-                    and shaking intensity (MMI). Size shows economic loss (USD, M).
+                    Bigger magnitude ≠ more deaths. Fatalities rise with exposure, building standards, and shaking intensity (MMI). Size =
+                    damage (USD, B).
                 </figcaption>
             </figure>
         </section>
@@ -82,7 +73,7 @@
                 <h2>Top Countries by Impact (2000–2025)</h2>
                 <div id="impactTop" class="chart"></div>
                 <figcaption>
-                    Toggle Deaths vs Damage to compare humanitarian vs economic impact. (NOAA significant events.)
+                    Sum of deaths or damage across significant events. Use the dropdown to switch metric.
                 </figcaption>
             </figure>
         </section>
@@ -97,24 +88,30 @@
             </figure>
         </section>
 
+        <footer class="meta">
+            <div class="meta-grid">
+                <div>
+                    <h3 class="meta-title">About</h3>
+                    <p>Author: <strong>Maliha Tariq</strong></p>
+                    <p>Created: <time datetime="2025-10-16">16 Oct 2025</time></p>
+                </div>
 
-        <!-- <section>
-            <figure>
-                <h2>Top-5 Countries by Quakes</h2>
-                <div id="top5" class="chart"></div>
-                <figcaption>Ranked list changes with the year slider above the chart.</figcaption>
-            </figure>
-        </section> -->
+                <div>
+                    <h3 class="meta-title">Project</h3>
+                    <p><a href="https://github.com/malihat16/Assignment2_FIT3179">GitHub repository</a></p>
+                </div>
 
-        <section>
-            <p>Author: Maliha Tariq</p>
-            <p>Created: 16.10.2025</p>
-            <p>Github link: <a href="https://github.com/malihat16/Assignment2_FIT3179">Github</a></p>
-            <p>Data Sources: <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog (ComCat)</a> and <a
-                        href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data?maxYear=2025&minYear=2000&minEqMagnitude=6">NOAA Earthquake Data</a></p>
-                </p>
-
-        </section>
+                <div>
+                    <h3 class="meta-title">Data Sources</h3>
+                    <ul class="meta-links">
+                        <li><a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog (ComCat)</a></li>
+                        <li><a
+                                href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data?maxYear=2025&minYear=2000&minEqMagnitude=6">NOAA
+                                Significant Earthquake Database</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </main>
 
     <!-- load once -->

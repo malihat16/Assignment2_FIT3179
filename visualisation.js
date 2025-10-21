@@ -1,8 +1,12 @@
 import { mapSpec } from './charts/map.js';
 import { lineSpec } from './charts/lineChart.js';
 import { histSpec } from './charts/histMag.js';
-import { areaMagClassSpec } from './charts/areaMagClass.js';
+// import { areaMagClassSpec } from './charts/areaMagClass.js'; // ← remove (dropped)
 import { initTopCountries } from './charts/topCountries.js';
+
+import { impactScatterSpec } from './charts/impactScatter.js';
+import { impactTrendsSpec } from './charts/impactTrends.js';
+import { impactLeaderboardSpec } from './charts/impactLeaderboard.js';
 
 function safeEmbed(sel, spec) {
   return vegaEmbed(sel, spec, { actions:false })
@@ -16,13 +20,16 @@ function safeEmbed(sel, spec) {
 }
 
 (async function () {
-  // show menu with just PNG/SVG + open in editor
   const MENU = { actions: { export: true, source: true, compiled: true, editor: true } };
 
   await vegaEmbed('#map',  mapSpec,  MENU);
   await vegaEmbed('#line', lineSpec, MENU);
   await vegaEmbed('#hist', histSpec, MENU);
-  await vegaEmbed('#areaMag', areaMagClassSpec, MENU);
 
-  await initTopCountries('#top5'); // this one renders a nested embed; keep as is
+  await initTopCountries('#top5'); // unchanged
+
+  // NEW NOAA charts
+  await vegaEmbed('#impactScatter', impactScatterSpec, MENU);
+  await vegaEmbed('#impactTrends',  impactTrendsSpec,  MENU);
+  await vegaEmbed('#impactTop',     impactLeaderboardSpec, MENU);
 })();

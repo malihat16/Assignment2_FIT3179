@@ -65,31 +65,53 @@
             </figure>
         </section>
 
-        <section>
+        <section class="grid2">
             <figure>
-                <h2>Share by Magnitude Class</h2>
-                <div id="areaMag" class="chart"></div>
+                <h2>Magnitude vs Fatalities</h2>
+                <div id="impactScatter" class="chart"></div>
                 <figcaption>
-                    Normalized stack by year shows the mix of 6.0–6.9, 7.0–7.9, and ≥8.0. Peak labels mark each class’s
-                    strongest years.
+                    Bigger magnitude doesn’t always mean higher deaths. Fatalities rise with exposed population, building
+                    standards,
+                    and shaking intensity (MMI). Size shows economic loss (USD, M).
                 </figcaption>
             </figure>
         </section>
 
         <section>
             <figure>
+                <h2>Top Countries by Impact (2000–2025)</h2>
+                <div id="impactTop" class="chart"></div>
+                <figcaption>
+                    Toggle Deaths vs Damage to compare humanitarian vs economic impact. (NOAA significant events.)
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure>
+                <h2>Yearly Impact Trends</h2>
+                <div id="impactTrends" class="chart"></div>
+                <figcaption>
+                    Annual totals with a 3-year moving average (dashed) to reduce noise. Annotate peaks for 2004, 2010, 2011.
+                </figcaption>
+            </figure>
+        </section>
+
+
+        <!-- <section>
+            <figure>
                 <h2>Top-5 Countries by Quakes</h2>
                 <div id="top5" class="chart"></div>
                 <figcaption>Ranked list changes with the year slider above the chart.</figcaption>
             </figure>
-        </section>
+        </section> -->
 
         <section>
             <p>Author: Maliha Tariq</p>
             <p>Created: 16.10.2025</p>
             <p>Github link: <a href="https://github.com/malihat16/Assignment2_FIT3179">Github</a></p>
-            <p>Data Source: <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog (ComCat), 2000–2025 (M≥6.0)</a> and <a
-                        href="https://www.usgs.gov/media/images/tectonic-plate-boundaries">USGS Tectonic Plate Boundaries</a></p>
+            <p>Data Sources: <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog (ComCat)</a> and <a
+                        href="https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/event-data?maxYear=2025&minYear=2000&minEqMagnitude=6">NOAA Earthquake Data</a></p>
                 </p>
 
         </section>

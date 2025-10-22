@@ -76,12 +76,21 @@ export const mapSpec = {
 
         // COLOR = magnitude with CVD-safe palette
         color: {
-          field: "magN", type: "quantitative", title: "Magnitude (color)",
-          // cividis is color-blind–friendly; reverse makes high = dark
-          scale: { scheme: "cividis", reverse: true, domain: [6, 9.2], clamp: true },
-          legend: { orient: "right", gradientLength: 140 }
-        },
-
+          field: "magN",
+          type: "quantitative",
+          title: "Magnitude (color)",
+          scale: {
+            type: "threshold",
+            domain: [6.5, 7, 7.5, 8, 8.5],                  // bin edges
+            range: ["#D3D3D3","#ffcccc","#ff9999","#ff6666","#cc0000","#990000"],
+            clamp: true
+          },
+          legend: {
+            orient: "right",
+            labelFormat: ".1f"                              // labels will show bin ranges
+          }
+        }
+,
         stroke: { value: "#ffffff" },  // thin white halo for contrast
 
         tooltip: [
